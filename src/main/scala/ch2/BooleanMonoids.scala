@@ -1,6 +1,6 @@
 package ch2
 
-import cats.Monoid
+import MonoidDefs._
 
 class BooleanMonoids {
 
