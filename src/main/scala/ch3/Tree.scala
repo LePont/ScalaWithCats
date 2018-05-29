@@ -7,10 +7,8 @@ sealed trait Tree[+A]
 final case class Branch[A](l: Tree[A], r: Tree[A]) extends Tree[A]
 final case class Leaf[A](value: A) extends Tree[A]
 
-object Tree {
 
-  def Branch[A](left: Tree[A], right: Tree[A]): Tree[A] = Branch(left,right)
-  def Leaf[A](v: A): Tree[A] = Leaf(v)
+object Tree {
 
   implicit val TreeFunctor: Functor[Tree] = {
     new Functor[Tree] {
@@ -21,4 +19,7 @@ object Tree {
         }
     }
   }
+
+  def Branch[A](left: Tree[A], right: Tree[A]): Tree[A] = Branch(left,right)
+  def Leaf[A](v: A): Tree[A] = Leaf(v)
 }
