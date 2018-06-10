@@ -25,5 +25,5 @@ object GO extends App {
   println(optionCat1 === optionCat2)
   println(optionCat1 =!= optionCat2)
 
-
+  false.print
 }
