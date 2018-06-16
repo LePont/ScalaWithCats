@@ -20,6 +20,6 @@ object Tree {
     }
   }
 
-  def Branch[A](left: Tree[A], right: Tree[A]): Tree[A] = Branch(left,right)
-  def Leaf[A](v: A): Tree[A] = Leaf(v)
+  def branch[A](left: Tree[A], right: Tree[A]): Tree[A] = Branch(left, right)
+  def leaf[A](v: A): Tree[A] = Leaf(v)
 }

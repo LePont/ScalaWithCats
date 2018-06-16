@@ -1,10 +1,12 @@
 package ch1
 
+import ch3.{Branch, Leaf, Tree}
+
 
 trait Printable[A] {
   self =>
 
-  def format(value:A): String
+  def format(value: A): String
 
   def contramap[B](func: B => A): Printable[B] = {
     new Printable[B] {
@@ -26,6 +28,13 @@ object PrintableInstances {
 
   implicit val booleanPrintable = new Printable[Boolean] {
     def format(value: Boolean) = if(value) "yes" else "no"
+  }
+
+  implicit val treePrintable = new Printable[Tree[Int]] {
+    def format(value: Tree[Int]) = value match {
+      case Leaf(number) => s"Leaf value: ${number.toString}"
+      case Branch(l, r) => s"Branch(${format(l)} , ${format(r)})"
+    }
   }
 }
 
