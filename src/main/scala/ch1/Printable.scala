@@ -30,8 +30,8 @@ object PrintableInstances {
     def format(value: Boolean) = if(value) "yes" else "no"
   }
 
-  implicit val treePrintable = new Printable[Tree[Int]] {
-    def format(value: Tree[Int]) = value match {
+  implicit def treePrintable[A] = new Printable[Tree[A]] {
+    def format(value: Tree[A]) = value match {
       case Leaf(number) => s"Leaf value: ${number.toString}"
       case Branch(l, r) => s"Branch(${format(l)} , ${format(r)})"
     }

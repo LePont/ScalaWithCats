@@ -16,9 +16,13 @@ object GO extends App{
   val box = Box("dddd")
   box.print
 
-  Tree.leaf(100).print
+  Tree.leaf(true).print
   Tree.branch(Leaf(10), Leaf(20)).map(_*2).print
 
+  import Codecs.boxCodec
+//  stringCodec.encode("asvsfdv")
 
-
+  println(boxCodec.decode("23.3"))
 }
+
+
