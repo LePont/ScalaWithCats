@@ -19,10 +19,13 @@ object GO extends App{
   Tree.leaf(true).print
   Tree.branch(Leaf(10), Leaf(20)).map(_*2).print
 
-  import Codecs.boxCodec
-//  stringCodec.encode("asvsfdv")
+  intCodec.encode(123).print
+  intCodec.decode("34562").print
 
-  println(boxCodec.decode("23.3"))
+  doubleCodec.decode("123.34").print
+
+  boxCodec[Int].encode(Box(123)).print
+  boxCodec[Double].decode("123.34").print
 }
 
 
