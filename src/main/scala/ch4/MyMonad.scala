@@ -1,6 +1,6 @@
 package ch4
 
-trait Monad[F[_]] {
+trait MyMonad[F[_]] {
 
   def pure[A](value: A): F[A]
 
