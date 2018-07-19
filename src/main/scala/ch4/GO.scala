@@ -71,4 +71,27 @@ object GO extends App {
         _ <- Vector(s"fact $n $ans").tell
       } yield ans
     }
+
+// Reader
+
+  import ch4.Readers._
+
+  val users = Map(
+    1 -> "d",
+    2 -> "c",
+    3 -> "r"
+  )
+
+  val passwords = Map(
+    "d" -> "go",
+    "c" -> "gadget",
+    "r" -> "train"
+  )
+
+  val db = Db(users, passwords)
+  println(checkLogin(1, "go").run(db))
+  println(checkLogin(2, "fail").run(db))
+
+
+
 }
