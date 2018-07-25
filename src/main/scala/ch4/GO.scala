@@ -114,4 +114,25 @@ object GO extends App {
   println(programAll.runA(Nil).value)
 
   println(evalInput("2 4 * 12 6 + 1 2 + 20 1 - 3 6 + *"))
+
+
+  // TREE MONAD
+  println("**** TREE MONAD *****")
+
+  import TreeMonad._
+  import cats.syntax.flatMap._
+  import cats.syntax.functor._
+
+  val myTree = branch(leaf(100), leaf(200))
+
+  println(myTree)
+  println(myTree.flatMap(x => branch(leaf(10 + x), leaf(10 + x))))
+
+  val forCheck = for{
+    a <- branch(leaf(100), leaf(200))
+    b <- branch(leaf(a + 20), leaf(a - 20))
+    c <- branch(leaf(b + 30), leaf(b - 30))
+  }yield c
+
+  println(forCheck)
 }
